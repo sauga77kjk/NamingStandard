@@ -18,7 +18,14 @@ local function test(name, aliases, callback)
 
 	task.spawn(function()
 		if not callback then
-			print("⏺️ " .. name)
+			print("⏺️ " .. name.. " unable to check, but looking for...")
+			if getfenv()[name] then
+				passes += 1
+				print("✅ " .. name .. " managed to find!")
+			else
+				fails += 1
+				warn("⛔ " .. name)
+			end
 		elseif not getGlobal(name) then
 			fails += 1
 			warn("⛔ " .. name)
@@ -55,7 +62,8 @@ end
 
 print("\n")
 
-print("UNC Environment Check")
+print("UBX Environment Check")
+warn("With the support of more tests!")
 print("✅ - Pass, ⛔ - Fail, ⏺️ - No test, ⚠️ - Missing aliases\n")
 
 task.defer(function()
@@ -65,11 +73,14 @@ task.defer(function()
 	local outOf = passes .. " out of " .. (passes + fails)
 
 	print("\n")
+	print("-----------------UBX (UNC WITH MORE TESTS)------------------")
+	print("\n")
 
-	print("UNC Summary")
-	print("✅ Tested with a " .. rate .. "% success rate (" .. outOf .. ")")
-	print("⛔ " .. fails .. " tests failed")
-	print("⚠️ " .. undefined .. " globals are missing aliases")
+	print("Encoded Summary")
+	print("Supported " .. rate .. "% success rate (" .. outOf .. " managed!)")
+	warn("" .. fails .. " failed")
+	warn("" .. undefined .. " missing aliases")
+	print("\\------------SUCCESSFUL CHECK FOR "..identifyexecutor and identifyexecutor() or "'Unknown :('".."------------")
 end)
 
 -- Cache
