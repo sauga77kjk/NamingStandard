@@ -80,7 +80,8 @@ task.defer(function()
 	print("Supported " .. rate .. "% success rate (" .. outOf .. " managed!)")
 	warn("" .. fails .. " failed")
 	warn("" .. undefined .. " missing aliases")
-	print("\\------------SUCCESSFUL CHECK FOR "..identifyexecutor and identifyexecutor() or "'Unknown :('".."------------")
+	local z,v = identifyexecutor()
+	print("\\------------SUCCESSFUL CHECK FOR "..z.."------------")
 end)
 
 -- Cache
